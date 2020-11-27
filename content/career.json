@@ -1,0 +1,112 @@
+{
+  "data": [
+    {
+      "type": "school",
+      "date": "May 2019",
+      "description": {
+        "what": "Graduated from",
+        "emphasis": "Syracuse University",
+        "info": "Earned a Master's of Science degree in the field of Computer Engineering."
+      }
+    },
+    {
+      "type": "job",
+      "date": "June 2018",
+      "description": {
+        "what": "Joined the",
+        "emphasis": "Army Data & Analysis Center",
+        "info": "Transferred federal service jobs from the Air Force to the Army. I am now working as a Computer Engineer working on Modeling & Simulation software for Network & Communications analysis at Aberdeen Proving Grounds, MD."
+      }
+    },
+    {
+      "type": "event",
+      "date": "May 2018",
+      "description": {
+        "what": "Co-authored and published an",
+        "emphasis": "ACM journal article",
+        "info": "The journal article entitled, 'Adaptive Opportunistic Airborne Sensor Sharing', built on a previously published IEEE research paper on the same subject"
+      }
+    },
+    {
+      "type": "event",
+      "date": "September 2016",
+      "description": {
+        "what": "Co-authored and published an",
+        "emphasis": "IEEE research paper",
+        "info": "The research paper entitled, 'Adaptive Task Reallocation for Airborne Sensor Sharing', stemmed from the research I was conducting at the Air Force Research Lab"
+      }
+    },
+    {
+      "type": "school",
+      "date": "December 2015",
+      "description": {
+        "what": "Accepted into",
+        "emphasis": "Syracuse University's Masters Program",
+        "info": "Started taking courses at Syracuse University to achieve a Master's degree in Computer Engineering."
+      }
+    },
+    {
+      "type": "event",
+      "date": "October 2015",
+      "description": {
+        "what": "Obtained",
+        "emphasis": "CompTIA Security+ certification",
+        "info": "Proven to have core knowledge of cybersecurity-related best practices and vulnerabilities."
+      }
+    },
+    {
+      "type": "job",
+      "date": "July 2015",
+      "description": {
+        "what": "Joined the",
+        "emphasis": "Air Force Research Laboratory",
+        "info": "Directly out of college, I started as an Associate Computer Scientist with AFRL's Information Directorate in Rome, NY. I mostly worked on researching, integrating, and prototyping information management services."
+      }
+    },
+    {
+      "type": "school",
+      "date": "May 2015",
+      "description": {
+        "what": "Graduated from",
+        "emphasis": "University of Delaware",
+        "info": "Earned a Bachelor's of Science with Honors degree in the field of Computer Science with a Global Enterprise Technologies minor."
+      }
+    },
+    {
+      "type": "job",
+      "date": "June 2014",
+      "description": {
+        "what": "Interned at",
+        "emphasis": "Gemalto (formerly SafeNet Inc.)",
+        "info": "My very first internship as a Web Applications Developer for this large tech company was a very rewarding experience and allowed me to learn a large breadth of web technologies, such as HTML5, CSS3, C#, ASP.NET, Apache Server, Microsoft IIS, and more!"
+      }
+    },
+    {
+      "type": "school",
+      "date": "January 2014",
+      "description": {
+        "what": "Accepted into the",
+        "emphasis": "GET program at University of Delaware",
+        "info": "The Global Enterprise Technologies program at UD allowed me to take on an internship at a technology company in the area, while still earning credits towards my undergraduated degree!"
+      }
+    },
+    {
+      "type": "job",
+      "date": "December 2013",
+      "description": {
+        "what": "Started working at",
+        "emphasis": "DCANet",
+        "info": "My first tech-related job was working the support desk of a small internet service provider in Wilmington, DE serving small-to-medium-sized businesses in Delaware and Philadelphia."
+      }
+    },
+    {
+      "type": "school",
+      "date": "August 2011",
+      "description": {
+        "what": "Enrolled at",
+        "emphasis": "University of Delaware",
+        "info": "Fresh from high school, I knew my passion was coding and computer architectures, so I decided to pursue a Bachelor's in Computer Science degree at UD."
+      }
+    }
+  ]
+}
