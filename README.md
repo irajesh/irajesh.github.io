@@ -1,5 +1,5 @@
-##My personal website (inspired by rowe.sh's design)
-==================================================
+## My personal website (inspired by rowe.sh's design)
+=========
 
 My personal site holding information about my academic and professional career and also my interests and hobbies.
 
