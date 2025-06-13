@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team TechnoSharks - FTC Robotics Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #004e89;
+            --accent-color: #ffd23f;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd23f 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 78, 137, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo .robot-icon {
+            font-size: 2rem;
+            animation: robotMove 3s ease-in-out infinite;
+        }
+
+        @keyframes robotMove {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg) scale(1.1); }
+            75% { transform: rotate(-5deg) scale(1.1); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .team-number {
+            font-size: 8rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,255,255,0.3); }
+            to { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5); }
+        }
+
+        .team-name {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 78, 137, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .robot-showcase {
+            background: var(--secondary-color);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .robot-icon-large {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            margin: 0 auto 1rem;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-year {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            background: var(--accent-color);
+            color: var(--text-dark);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .team-number {
+                font-size: 4rem;
+            }
+
+            .team-name {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 250px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <span class="robot-icon">🤖</span>
+                TechnoSharks
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#achievements">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="team-number">#12345</div>
+                <h1 class="team-name">TechnoSharks</h1>
+                <p class="hero-subtitle">Powering the future through innovative robotics and STEM education. Join us as we compete, learn, and inspire the next generation of engineers.</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Meet Our Robot</a>
+                    <a href="#team" class="btn btn-outline">Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Team TechnoSharks</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>Team TechnoSharks is a passionate group of students dedicated to robotics excellence and STEM outreach. Founded in 2020, we compete in the FIRST Tech Challenge, where we design, build, and program robots to complete challenging tasks.</p>
+                    
+                    <p>Our mission extends beyond competition - we're committed to inspiring younger students, promoting STEM education in our community, and developing the problem-solving skills that will drive tomorrow's innovations.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div>Seasons</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div>Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8</div>
+                            <div>Awards</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div>Outreach Hours</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="robot-showcase fade-in">
+                    <div class="robot-icon-large">🤖</div>
+                    <h3>Meet "Lightning Bolt"</h3>
+                    <p>Our 2024-2025 robot designed for the FIRST Tech Challenge season. Features advanced autonomous capabilities and precision engineering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="member-avatar">👨‍💻</div>
+                    <div class="member-name">Student #1</div>
+                    <div class="member-role">Team Captain & Lead Programmer</div>
+                    <p>Senior with 3 years of FTC experience. Specializes in autonomous programming and team coordination.</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="member-avatar">🔧</div>
+                    <div class="member-name">Student #2</div>
+                    <div class="member-role">Lead Engineer</div>
+                    <p>Mechanical engineering enthusiast focused on robot design and CAD modeling.</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="member-avatar">⚡</div>
+                    <div class="member-name">Student #3</div>
+                    <div class="member-role">Electrical Lead</div>
+                    <p>Electronics wizard handling wiring, sensors, and hardware troubleshooting.</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="member-avatar">📊</div>
+                    <div class="member-name">Student #4</div>
+                    <div class="member-role">Strategy & Scouting</div>
+                    <p>Data analyst and strategic planner, coordinates alliance selections and match strategy.</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="member-avatar">🎯</div>
+                    <div class="member-name">Student #5</div>
+                    <div class="member-role">Drive Team</div>
+                    <p>Skilled driver with precise control and quick reflexes during competitions.</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="member-avatar">🤝</div>
+                    <div class="member-name">Student #6</div>
+                    <div class="member-role">Outreach Coordinator</div>
+                    <p>Organizes community events and mentors younger robotics teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">Achievements & Awards</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-title">Inspire Award Winner</div>
+                    <div class="achievement-year">2024</div>
+                    <p>Regional Championship - Recognized for outstanding team spirit and community impact.</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">🎯</div>
+                    <div class="achievement-title">Think Award</div>
+                    <div class="achievement-year">2023</div>
+                    <p>State Tournament - Honored for innovative engineering design and documentation.</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">🤝</div>
+                    <div class="achievement-title">Connect Award</div>
+                    <div class="achievement-year">2023</div>
+                    <p>Regional Qualifier - Celebrated exceptional outreach and STEM promotion efforts.</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">💻</div>
+                    <div class="achievement-title">Control Award</div>
+                    <div class="achievement-year">2022</div>
+                    <p>League Championship - Outstanding programming and sensor integration.</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">🎖️</div>
+                    <div class="achievement-title">Finalist Alliance</div>
+                    <div class="achievement-year">2024</div>
+                    <p>Regional Championship - Advanced to elimination rounds as alliance captain.</p>
+                </div>
+                
+                <div class="achievement-card fade-in">
+                    <div class="achievement-icon">⭐</div>
+                    <div class="achievement-title">Dean's List Finalist</div>
+                    <div class="achievement-year">2024</div>
+                    <p>Individual recognition for exceptional leadership and STEM passion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>📧 teamtechnosharks@gmail.com</p>
+                    <p>📱 (541) 286-0000</p>
+                    <p>🏫 Middle Schoolers<br>123 Robotics Drive<br>Portland, OR 97229</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#">Team Handbook</a>
+                    <a href="#">Engineering Notebook</a>
+                    <a href="#">Competition Schedule</a>
+                    <a href="#">Sponsor Information</a>
+                    <a href="#">Join Our Team</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="https://firstinspires.org" target="_blank">FIRST</a>
+                    <a href="#" target="_blank">Team Calendar</a>
+                    <a href="#" target="_blank">Photo Gallery</a>
+                    <a href="#" target="_blank">Robot CAD Files</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>Stay updated on our journey!</p>
+                    <div class="social-links">
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Twitter">🐦</a>
+                        <a href="#" title="YouTube">📺</a>
+                        <a href="#" title="GitHub">💻</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Team TechnoSharks #12345. All rights reserved. | Powered by FIRST Tech Challenge</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 78, 137, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 78, 137, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
